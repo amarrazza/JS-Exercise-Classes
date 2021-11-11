@@ -186,6 +186,16 @@ class Student extends Lambdasian{
    }
 }
 
+const austin = new Student({
+  name: 'Austin',
+  age: 23,
+  location: 'SF',
+  previousBackground: 'neuro',
+  className: 'web50',
+  favSubjects: 'psych',
+});
+
+console.log(austin.PRAssignment('business'));
 /*
   TASK 6
     - Write a ProjectManager class extending Instructor.
@@ -199,7 +209,18 @@ class Student extends Lambdasian{
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
+class ProjectManager extends Instructor{
+  constructor({name, age, location, specialty, favLanguage, catchPhrase, gradClassName, favInstructor}){
+    super({name, age, location, specialty, favLanguage, catchPhrase});
+    this.gradClassName = gradClassName;
+    this.favInstructor = favInstructor;
+  }
+  standUp(channel){
+    return `${this.name} announces to ${channel}, @channel standy times!`
+  }
+  debugsCode(student, subject){
+    return `${this.name} debugs ${student.name}'s code on ${subject}`
+  }
    
 }
 /*
